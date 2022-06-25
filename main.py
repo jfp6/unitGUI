@@ -9,7 +9,7 @@ st.write("# Unit Conversions")
 
 conversion = st.radio("Select Conversion",("Length","Area","Volume","Volumetric Flow","Mass","Mass Flow"),horizontal=True)
 
-col1,col1b, col2,col2b = st.columns([2,2,2,2])
+col1,col1b, col2,col2b = st.columns([3,2,3,2])
 
 with col1:
     if conversion == "Mass":
