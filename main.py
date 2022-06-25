@@ -9,7 +9,7 @@ st.write("# Unit Conversions")
 
 conversion = st.radio("Select Conversion",("Length","Area","Volume","Volumetric Flow","Mass","Mass Flow"),horizontal=True)
 
-col1, col2 = st.columns(2)
+col1,col1b, col2,col2b = st.columns([2,2,2,2])
 
 with col1:
     if conversion == "Mass":
@@ -20,7 +20,17 @@ with col1:
     elif conversion == "Length":
         st.header("Length SI")
         length_m = st.number_input("Enter m",step=1.0)*ur("m")
-    
+        st.write('{:.2f}'.format(length_m.to("in")))
+with col1b:
+    if conversion == "Mass":
+        st.header("")
+        massu = st.selectbox("Unit",("kg","tonne"))
+        st.write('')
+        st.write('')
+    elif conversion == "Length":
+        st.header("Length SI")
+        length_m = st.number_input("Enter m",step=1.0)*ur("m")
+        st.write('{:.2f}'.format(length_m.to("in")))
 with col2:
     if conversion == "Mass":
         st.header("Mass USCS")
