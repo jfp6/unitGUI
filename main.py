@@ -7,7 +7,9 @@ pi = math.pi
 
 st.write("# Unit Conversions")
 
-conversion = st.radio("Select Conversion",("Length","Area","Volume","Volumetric Flow","Mass","Mass Flow"))
+conversion = st.radio("Select Conversion",("Length","Area","Volume","Volumetric Flow","Mass","Mass Flow"),horizontal=True)
+
+col1, col2 = st.columns(2)
 
 with col1:
     if conversion == "Mass":
