@@ -5,23 +5,26 @@ ur = UnitRegistry()
 ur_ = ur.Quantity
 pi = math.pi
 
-ur.default_format = '.3f'
 st.write("# Unit Conversions")
 
-col1, col2 = st.columns(2)
+conversion = st.radio("Select Conversion",("Length","Area","Volume","Volumetric Flow","Mass","Mass Flow"))
 
 with col1:
-    st.header("Mass SI")
-    mass_kg = st.number_input("Enter kg",step=1.0)*ur("kg")
-    st.write('{:.2f}'.format(mass_kg.to("lb")))
-    st.write('{:.4f}'.format(mass_kg.to("tonne")))
-    st.header("Length SI")
+    if conversion == "Mass":
+        st.header("Mass SI")
+        mass_kg = st.number_input("Enter kg",step=1.0)*ur("kg")
+        st.write('{:.2f}'.format(mass_kg.to("lb")))
+        st.write('{:.4f}'.format(mass_kg.to("tonne")))
+    elif conversion == "Length":
+        st.header("Length SI")
+        length_m = st.number_input("Enter m",step=1.0)*ur("m")
     
-
 with col2:
-    st.header("Mass USCS")
-    mass_lbm = st.number_input("Enter lbm",step=1.0)*ur("lb")
-    st.write('{:.2f}'.format(mass_lbm.to("kg")))
-    st.write('{:.4f}'.format(mass_lbm.to("tonne")))
-    st.header("Length USCS")
+    if conversion == "Mass":
+        st.header("Mass USCS")
+        mass_lbm = st.number_input("Enter lbm",step=1.0)*ur("lb")
+        st.write('{:.2f}'.format(mass_lbm.to("kg")))
+        st.write('{:.4f}'.format(mass_lbm.to("tonne")))
+    elif conversion == "Length":
+        st.header("Length USCS")
     
