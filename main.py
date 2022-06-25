@@ -5,6 +5,7 @@ ur = UnitRegistry()
 ur_ = ur.Quantity
 pi = math.pi
 
+ur.default_format = '.3f'
 st.write("# Unit Conversions")
 
 col1, col2 = st.columns(2)
