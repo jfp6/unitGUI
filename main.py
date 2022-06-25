@@ -7,3 +7,15 @@ pi = math.pi
 
 st.write("# Unit Conversions")
 
+col1, col2 = st.columns(2)
+
+with col1:
+    st.header("Mass SI")
+    mass_kg = st.number_input("Enter kg")*ur("kg")
+    st.write(mass_kg.to("lbm"))
+
+with col2:
+    st.header("Mass USCS")
+    mass_lbm = st.number_input("Enter lbm")*ur("lb")
+    st.write(mass_lbm.to("kg"))
+    
