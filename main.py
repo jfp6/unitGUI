@@ -21,12 +21,13 @@ if conversion == "Pressure":
     col1.write('{:.2f}'.format(value.to("bar").magnitude)+" bar")
     col1.write('{:.1f}'.format(value.to("psi").magnitude)+" psi")
 elif conversion == "Temperature":
-    unit = col2.selectbox("Unit",("K","C","F","R"))
+    unit = col2.selectbox("Unit",("K","degC","degF","degR"))
     qty = col1.number_input("Input",step=1.0)
-    col1.write('{:.1f}'.format(qty*ur_(unit).to("C")))
-    col1.write('{:.1f}'.format(qty*ur_(unit).to("K")))
-    col1.write('{:.1f}'.format(qty*ur_(unit).to("F")))
-    col1.write('{:.1f}'.format(qty*ur_(unit).to("R")))
+    value = ur_(qty,unit)
+    col1.write('{:.1f}'.format(value.to("K").magnitude)+" K")
+    col1.write('{:.1f}'.format(value.to("degC").magnitude)+" degC")
+    col1.write('{:.1f}'.format(value.to("degF").magnitude)+" degF")
+    col1.write('{:.1f}'.format(value.to("degR").magnitude)+" degR")
 elif conversion == "Mass":
     unit = col2.selectbox("Unit",("kg","tonne","lb","slug"))
     qty = col1.number_input("Input",step=1.0)
