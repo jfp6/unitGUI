@@ -36,6 +36,22 @@ elif conversion == "Length":
     col1.write('{:.3g}'.format(value.to("m").magnitude)+" m")
     col1.write('{:.3g}'.format(value.to("in").magnitude)+" in")
     col1.write('{:.3g}'.format(value.to("ft").magnitude)+" ft")
+elif conversion == "Area":
+    unit = col2.selectbox("Unit",("mm2","m2","in2","ft2"))
+    qty = col1.number_input("Input",step=1.0)
+    if unit == "mm2":
+        unit = "mm**2"
+    elif unit == "m2":
+        unit = "m**2"
+    elif unit == "in2":
+        unit = "in**2"
+    elif unit == "ft2":
+        unit = "ft**2"
+    value = qty*ur(unit)
+    col1.write('{:.3g}'.format(value.to("mm**2").magnitude)+" mm2")
+    col1.write('{:.3g}'.format(value.to("m**2").magnitude)+" m2")
+    col1.write('{:.3g}'.format(value.to("in**2").magnitude)+" in2")
+    col1.write('{:.3g}'.format(value.to("ft**2").magnitude)+" ft2")
 elif conversion == "Mass":
     unit = col2.selectbox("Unit",("kg","tonne","lb","slug"))
     qty = col1.number_input("Input",step=1.0)
