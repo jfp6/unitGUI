@@ -23,10 +23,10 @@ with col1:
         st.write('{:.2f}'.format(length_m.to("in")))
 with col1b:
     if conversion == "Mass":
-        st.header("")
+        st.header(" ")
         massu = st.selectbox("Unit",("kg","tonne"))
-        st.write('')
-        st.write('')
+        st.write(' ')
+        st.write(' ')
     elif conversion == "Length":
         st.header("Length SI")
         length_m = st.number_input("Enter m",step=1.0)*ur("m")
