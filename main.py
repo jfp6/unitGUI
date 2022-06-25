@@ -14,7 +14,7 @@ with col1:
     st.header("Mass SI")
     mass_kg = st.number_input("Enter kg",step=1.0)*ur("kg")
     st.write('{:.2f}'.format(mass_kg.to("lb")))
-    st.write('{:.4f}'.format(mass_kg.to("tonne"))
+    st.write('{:.4f}'.format(mass_kg.to("tonne")))
     st.header("Length SI")
     
 
