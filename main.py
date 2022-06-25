@@ -7,7 +7,7 @@ pi = math.pi
 
 st.write("# Unit Conversions")
 
-conversion = st.radio("Select Conversion",("Length","Area","Volume","Volumetric Flow","Mass","Mass Flow"),horizontal=True)
+conversion = st.radio("Select Conversion",("Pressure","Temperature","Length","Area","Volume","Volumetric Flow","Mass","Mass Flow"),horizontal=True)
 
 col1, col2 = st.columns([3,2])
 
@@ -17,3 +17,4 @@ if conversion == "Mass":
     col1.write('{:.2f}'.format(mass*ur(massu).to("kg")))
     col1.write('{:.2f}'.format(mass*ur(massu).to("lb")))
     col1.write('{:.4f}'.format(mass*ur(massu).to("tonne")))
+    
