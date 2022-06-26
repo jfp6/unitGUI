@@ -9,7 +9,7 @@ st.write("# Unit Conversions")
 
 conversion = st.radio("Select Conversion",("Pressure","Temperature","Length","Area","Volume","Volumetric Flow","Mass","Mass Flow"),horizontal=True)
 
-col1, col2 = st.columns([3,2])
+col1, col2 = st.columns([4,1])
 
 if conversion == "Pressure":
     qty = col1.number_input("Input",step=1.0)
