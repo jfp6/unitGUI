@@ -92,3 +92,12 @@ elif conversion == "Mass":
     col1.write('{:.3g}'.format(value.to("tonne").magnitude)+" tonne")
     col1.write('{:.3g}'.format(value.to("lb").magnitude)+" lb")
     col1.write('{:.3g}'.format(value.to("slug").magnitude)+" slug")
+elif conversion == "Mass Flow":
+    unit = col2.selectbox("Unit",("kg/hr","tonne/hr","kg/s","lb/hr","lb/s"))
+    qty = col1.number_input("Input",step=1.0)
+    value = qty*ur(unit)
+    col1.write('{:.3g}'.format(value.to("kg/hr").magnitude)+" kg/hr")
+    col1.write('{:.3g}'.format(value.to("tonne/hr").magnitude)+" tonne/hr")
+    col1.write('{:.3g}'.format(value.to("kg/s").magnitude)+" kg/s")
+    col1.write('{:.3g}'.format(value.to("lb/hr").magnitude)+" lb/hr")
+    col1.write('{:.3g}'.format(value.to("lb/s").magnitude)+" lb/s")
