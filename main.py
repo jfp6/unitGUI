@@ -68,6 +68,22 @@ elif conversion == "Volume":
     col1.write('{:.3g}'.format(value.to("m**3").magnitude)+" m3")
     col1.write('{:.3g}'.format(value.to("in**3").magnitude)+" in3")
     col1.write('{:.3g}'.format(value.to("ft**3").magnitude)+" ft3")
+elif conversion == "Volumetric Flow":
+    unit = col2.selectbox("Unit",("m3/hr","m3/s","gpm","ft3/s"))
+    qty = col1.number_input("Input",step=1.0)
+    if unit == "m3/hr":
+        unit = "m**3/hr"
+    elif unit == "m3/s":
+        unit = "m**3/s"
+    elif unit == "gpm":
+        unit = "gallon/min"
+    elif unit == "ft3/s":
+        unit = "ft**3/s"
+    value = qty*ur(unit)
+    col1.write('{:.3g}'.format(value.to("m**3/hr").magnitude)+" m3/hr")
+    col1.write('{:.3g}'.format(value.to("m**3/s").magnitude)+" m3/s")
+    col1.write('{:.3g}'.format(value.to("gallon/min").magnitude)+" gpm")
+    col1.write('{:.3g}'.format(value.to("ft**3/s").magnitude)+" ft3/s")
 elif conversion == "Mass":
     unit = col2.selectbox("Unit",("kg","tonne","lb","slug"))
     qty = col1.number_input("Input",step=1.0)
