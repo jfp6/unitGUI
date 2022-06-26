@@ -9,17 +9,18 @@ st.write("# Unit Conversions")
 
 conversion = st.radio("Select Conversion",("Pressure","Temperature","Length","Area","Volume","Volumetric Flow","Mass","Mass Flow"),horizontal=True)
 
-col1, col2 = st.columns([3,3])
+cont = st.container()
+col1, col2 = cont.columns([3,3])
 
 if conversion == "Pressure":
     qty = col1.number_input("Input",step=1.0)
     unit = col2.selectbox("Unit",("Pa","kPa","MPa","bar","psi"))
     value = qty*ur(unit)
-    col1.write('{:.3g}'.format(value.to("Pa").magnitude)+" Pa")
-    col1.write('{:.3g}'.format(value.to("kPa").magnitude)+" kPa")
-    col1.write('{:.3g}'.format(value.to("MPa").magnitude)+" MPa")
-    col1.write('{:.3g}'.format(value.to("bar").magnitude)+" bar")
-    col1.write('{:.3g}'.format(value.to("psi").magnitude)+" psi")
+    st.write('{:.3g}'.format(value.to("Pa").magnitude)+" Pa")
+    st.write('{:.3g}'.format(value.to("kPa").magnitude)+" kPa")
+    st.write('{:.3g}'.format(value.to("MPa").magnitude)+" MPa")
+    st.write('{:.3g}'.format(value.to("bar").magnitude)+" bar")
+    st.write('{:.3g}'.format(value.to("psi").magnitude)+" psi")
 elif conversion == "Temperature":
     qty = col1.number_input("Input",step=1.0)
     unit = col2.selectbox("Unit",("K","degC","degF","degR"))
