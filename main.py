@@ -7,7 +7,7 @@ pi = math.pi
 
 st.write("# Unit Conversions")
 
-conversion = st.radio("Select Conversion",("Pressure","Force","Temperature","Length","Area","Volume","Volumetric Flow","Mass","Mass Flow","Density"),horizontal=True)
+conversion = st.radio("Select Conversion",("Pressure","Force","Temperature","Length","Area","Volume","Volumetric Flow","Mass","Mass Flow","Density","Viscosity"),horizontal=True)
 
 cont = st.container()
 col1, col2 = cont.columns([3,3])
