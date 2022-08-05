@@ -7,7 +7,7 @@ pi = math.pi
 
 st.write("# Unit Conversions")
 
-conversion = st.radio("Select Conversion",("Pressure","Temperature","Length","Area","Volume","Volumetric Flow","Mass","Mass Flow"),horizontal=True)
+conversion = st.radio("Select Conversion",("Pressure","Force","Temperature","Length","Area","Volume","Volumetric Flow","Mass","Mass Flow","Density"),horizontal=True)
 
 cont = st.container()
 col1, col2 = cont.columns([3,3])
@@ -21,6 +21,14 @@ if conversion == "Pressure":
     st.write('{:.3g}'.format(value.to("MPa").magnitude)+" MPa")
     st.write('{:.3g}'.format(value.to("bar").magnitude)+" bar")
     st.write('{:.3g}'.format(value.to("psi").magnitude)+" psi")
+elif conversion == "Force":
+    qty = col1.number_input("Input",step=1.0)
+    unit = col2.selectbox("Unit",("N","kN","lbf","kgf"))
+    value = qty*ur(unit)
+    st.write('{:.3g}'.format(value.to("N").magnitude)+" N")
+    st.write('{:.3g}'.format(value.to("kN").magnitude)+" kN")
+    st.write('{:.3g}'.format(value.to("lbf").magnitude)+" lbf")
+    st.write('{:.3g}'.format(value.to("kgf").magnitude)+" kgf")
 elif conversion == "Temperature":
     qty = col1.number_input("Input",step=1.0)
     unit = col2.selectbox("Unit",("K","degC","degF","degR"))
@@ -102,3 +110,25 @@ elif conversion == "Mass Flow":
     st.write('{:.3g}'.format(value.to("kg/s").magnitude)+" kg/s")
     st.write('{:.3g}'.format(value.to("lb/hr").magnitude)+" lb/hr")
     st.write('{:.3g}'.format(value.to("lb/s").magnitude)+" lb/s")
+elif conversion == "Density":
+    qty = col1.number_input("Input",step=1.0)
+    unit = col2.selectbox("Unit",("kg/m3","lb/ft3","liquid SG"))
+    value = qty*ur(unit)
+    if unit == "kg/m3":
+        unit = "kg/m**3"
+    elif unit == "lb/ft3":
+        unit = "lb/ft**3"
+    elif unit == "liquid SG":
+        unit = "tonne/m**3"
+    st.write('{:.3g}'.format(value.to("kg/m**3").magnitude)+" kg/m3")
+    st.write('{:.3g}'.format(value.to("lb/ft**3").magnitude)+" lb/ft3")
+    st.write('{:.3g}'.format(value.to("tonne/m**3").magnitude)+" Liquid SG")
+elif conversion == "Viscosity":
+    qty = col1.number_input("Input",step=1.0)
+    unit = col2.selectbox("Unit",("cP","Pa*s"))
+    value = qty*ur(unit)
+    if unit == "cP":
+        unit = "centipoise"
+    st.write('{:.3g}'.format(value.to("centipoise").magnitude)+" cP")
+    st.write('{:.3g}'.format(value.to("Pa*s").magnitude)+" Pa*s")
+    
