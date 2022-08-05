@@ -113,22 +113,22 @@ elif conversion == "Mass Flow":
 elif conversion == "Density":
     qty = col1.number_input("Input",step=1.0)
     unit = col2.selectbox("Unit",("kg/m3","lb/ft3","liquid SG"))
-    value = qty*ur(unit)
     if unit == "kg/m3":
         unit = "kg/m**3"
     elif unit == "lb/ft3":
         unit = "lb/ft**3"
     elif unit == "liquid SG":
         unit = "tonne/m**3"
+    value = qty*ur(unit)
     st.write('{:.3g}'.format(value.to("kg/m**3").magnitude)+" kg/m3")
     st.write('{:.3g}'.format(value.to("lb/ft**3").magnitude)+" lb/ft3")
     st.write('{:.3g}'.format(value.to("tonne/m**3").magnitude)+" Liquid SG")
 elif conversion == "Viscosity":
     qty = col1.number_input("Input",step=1.0)
     unit = col2.selectbox("Unit",("cP","Pa*s"))
-    value = qty*ur(unit)
     if unit == "cP":
         unit = "centipoise"
+    value = qty*ur(unit)
     st.write('{:.3g}'.format(value.to("centipoise").magnitude)+" cP")
     st.write('{:.3g}'.format(value.to("Pa*s").magnitude)+" Pa*s")
     
